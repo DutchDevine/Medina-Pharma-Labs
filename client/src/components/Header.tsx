@@ -2,6 +2,7 @@ import { ShoppingCart, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Link, useLocation } from "wouter";
 import medinaLogo from "@assets/Bez tytułu_1762047957578.png";
 
 interface HeaderProps {
@@ -21,6 +22,9 @@ export default function Header({
   selectedCategory,
   onCategoryChange,
 }: HeaderProps) {
+  const [location, setLocation] = useLocation();
+  const isHomePage = location === "/";
+
   const categories = [
     { id: "all", label: "Alle Producten" },
     { id: "injectable-steroids", label: "Injecteerbare Steroïden" },
@@ -33,7 +37,10 @@ export default function Header({
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between gap-4">
-          <div className="flex items-center gap-6">
+          <div 
+            onClick={() => setLocation("/")}
+            className="flex items-center gap-6 cursor-pointer hover-elevate p-2 rounded-lg transition-all"
+          >
             <img 
               src={medinaLogo} 
               alt="MEDINA PharmaLabs" 
@@ -50,54 +57,66 @@ export default function Header({
             </div>
           </div>
 
-          <div className="flex flex-1 items-center gap-4 max-w-xl">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Zoek producten..."
-                value={searchQuery}
-                onChange={(e) => onSearchChange(e.target.value)}
-                className="pl-9"
-                data-testid="input-search"
-              />
-            </div>
-          </div>
-
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={onCartClick}
-            className="relative"
-            data-testid="button-cart"
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {cartItemCount > 0 && (
-              <Badge
-                variant="destructive"
-                className="absolute -right-2 -top-2 h-5 min-w-5 rounded-full px-1 text-xs"
-                data-testid="badge-cart-count"
-              >
-                {cartItemCount}
-              </Badge>
-            )}
-          </Button>
-        </div>
-
-        <div className="flex gap-2 overflow-x-auto pb-3 pt-2">
-          {categories.map((cat) => (
-            <Button
-              key={cat.id}
-              variant={selectedCategory === cat.id ? "default" : "outline"}
-              size="sm"
-              onClick={() => onCategoryChange(cat.id)}
-              className="whitespace-nowrap"
-              data-testid={`button-category-${cat.id}`}
+          <div className="flex items-center gap-4">
+            <Button 
+              variant={location === "/over-ons" ? "default" : "ghost"}
+              onClick={() => setLocation("/over-ons")}
+              data-testid="button-about-nav"
             >
-              {cat.label}
+              Over Ons
             </Button>
-          ))}
+
+            {isHomePage && (
+              <div className="relative flex-1 max-w-xl hidden sm:block">
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Zoek producten..."
+                  value={searchQuery}
+                  onChange={(e) => onSearchChange(e.target.value)}
+                  className="pl-9"
+                  data-testid="input-search"
+                />
+              </div>
+            )}
+
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={onCartClick}
+              className="relative"
+              data-testid="button-cart"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemCount > 0 && (
+                <Badge
+                  variant="destructive"
+                  className="absolute -right-2 -top-2 h-5 min-w-5 rounded-full px-1 text-xs"
+                  data-testid="badge-cart-count"
+                >
+                  {cartItemCount}
+                </Badge>
+              )}
+            </Button>
+          </div>
         </div>
+
+        {isHomePage && (
+          <div className="flex gap-2 overflow-x-auto pb-3 pt-2">
+            {categories.map((cat) => (
+              <Button
+                key={cat.id}
+                variant={selectedCategory === cat.id ? "default" : "outline"}
+                size="sm"
+                onClick={() => onCategoryChange(cat.id)}
+                className="whitespace-nowrap"
+                data-testid={`button-category-${cat.id}`}
+              >
+                {cat.label}
+              </Button>
+            ))}
+          </div>
+        )}
       </div>
     </header>
   );
