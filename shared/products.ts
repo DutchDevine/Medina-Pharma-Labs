@@ -11,6 +11,29 @@ export const products: Product[] = [
     concentration: "100 IU",
     quantity: "10×10 IU",
     priceEur: 222.05,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/Bez tytułu_1762047957578.png",
+    description: "GH Endogenic is recombinant menselijk groeihormoon (HGH) van farmaceutische kwaliteit. Het bevordert spiergroei, vetverbranding en herstel.",
+    usage: "Subcutane of intramusculaire injectie, dagelijks of meerdere keren per dag",
+    dosage: "2-4 IU per dag voor anti-aging en herstel, 4-8 IU per dag voor bodybuilding doeleinden",
+    benefits: [
+      "Verbeterde vetverlies bij behoud van spiermassa",
+      "Verhoogde spiergroei en recuperatie",
+      "Verbeterde huidkwaliteit en anti-aging effecten",
+      "Sterkere botten en gewrichten",
+      "Verbeterde slaapkwaliteit",
+      "Toegenomen energieniveaus"
+    ],
+    warnings: [
+      "Medisch toezicht sterk aanbevolen",
+      "Kan bloedsuikerspiegel beïnvloeden",
+      "Niet gebruiken bij kanker of tumoren",
+      "Langdurig gebruik vereist monitoring",
+      "Bewaar gekoeld tussen 2-8°C"
+    ],
+    ingredients: "Somatropine (recombinant HGH) 10 IU per flacon, mannitol, natriumfosfaat buffer"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "test-enan",
@@ -21,6 +44,28 @@ export const products: Product[] = [
     concentration: "300 mg/ml",
     quantity: "10 ml",
     priceEur: 34.16,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/image_1762051320696.png",
+    description: "Test Enan (Testosteron Enanthate) is een langwerkend testosteron ester dat wordt gebruikt voor spiergroei en kracht. Het is een van de meest populaire anabole steroïden voor massa-opbouw.",
+    usage: "Intramusculaire injectie, meestal 1-2 keer per week",
+    dosage: "Typisch 300-600 mg per week voor gevorderde gebruikers. Beginners starten vaak met 300 mg per week.",
+    benefits: [
+      "Significante toename in spiermassa",
+      "Verhoogde kracht en power output",
+      "Verbeterd herstel na training",
+      "Verhoogde eiwitynthese",
+      "Verbeterde stikstofretentie"
+    ],
+    warnings: [
+      "Alleen voor volwassenen boven 21 jaar",
+      "Medisch toezicht vereist",
+      "Kan bijwerkingen veroorzaken zoals aromatisatie",
+      "Niet aanbevolen voor vrouwen",
+      "Post Cycle Therapy (PCT) is noodzakelijk"
+    ],
+    ingredients: "Testosteron Enanthate 300mg/ml, Benzyl Alcohol, Benzyl Benzoate, Druivenpitolie"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "test-cypio",
@@ -131,6 +176,28 @@ export const products: Product[] = [
     concentration: "100 mg/ml",
     quantity: "10 ml",
     priceEur: 44.42,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/image_1762051320696.png",
+    description: "Trenbolone Acetate is een van de krachtigste anabole steroïden beschikbaar. Het staat bekend om zijn vermogen om spiermassa en kracht dramatisch te verhogen.",
+    usage: "Intramusculaire injectie, om de dag of dagelijks vanwege korte halfwaardetijd",
+    dosage: "50-100 mg om de dag voor gevorderde gebruikers. Niet aanbevolen voor beginners.",
+    benefits: [
+      "Extreme toename in spiermassa en dichtheid",
+      "Dramatische verhoging van kracht",
+      "Geen aromatisatie naar oestrogeen",
+      "Verhoogde vetverlies tijdens massa-opbouw",
+      "Verbeterde vascularity en hardheid"
+    ],
+    warnings: [
+      "Alleen voor zeer ervaren gebruikers",
+      "Kan cardiovasculaire bijwerkingen veroorzaken",
+      "Mogelijk nachtelijk zweten en slapeloosheid",
+      "Sterk androgeen - niet voor vrouwen",
+      "Medisch toezicht sterk aanbevolen"
+    ],
+    ingredients: "Trenbolone Acetate 100mg/ml, Benzyl Alcohol, Benzyl Benzoate, Druivenpitolie"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "tren-e",
@@ -221,6 +288,28 @@ export const products: Product[] = [
     brand: "ENDOGENIC",
     quantity: "5000 IU",
     priceEur: 37.59,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/Endogenic peptydy_1762048163392.png",
+    description: "HCG (Human Chorionic Gonadotropin) wordt gebruikt om de natuurlijke testosteronproductie te stimuleren, vooral belangrijk tijdens en na steroïde cycli.",
+    usage: "Subcutane of intramusculaire injectie, 2-3 keer per week",
+    dosage: "250-500 IU, 2-3 keer per week tijdens cyclus. 1000-1500 IU om de dag voor PCT.",
+    benefits: [
+      "Stimuleert natuurlijke testosteronproductie",
+      "Voorkomt testikel atrofie tijdens cyclus",
+      "Ondersteunt vruchtbaarheid",
+      "Helpt LH en FSH niveaus te herstellen",
+      "Essentieel voor effectieve Post Cycle Therapy"
+    ],
+    warnings: [
+      "Niet te veel of te vaak gebruiken",
+      "Kan oestrogeen verhogen - monitor dit",
+      "Bewaar in koelkast na reconstitutie",
+      "Gebruik binnen 60 dagen na reconstitutie",
+      "Medisch advies aanbevolen"
+    ],
+    ingredients: "HCG 5000 IU, mannitol, natriumfosfaat buffer, steriel water (apart verpakt)"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "hcg-pregnyl",
@@ -259,6 +348,28 @@ export const products: Product[] = [
     concentration: "10 mg/tab",
     quantity: "100 tabletten",
     priceEur: 30.74,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/image_1762051320696.png",
+    description: "Methandienone, ook bekend als Dianabol, is een van de populairste orale anabole steroïden voor snelle massa-opbouw en krachttoename.",
+    usage: "Oraal, met voedsel innemen voor betere maagvertraging",
+    dosage: "20-50 mg per dag, verdeeld over meerdere doses. Cyclus van 4-6 weken.",
+    benefits: [
+      "Snelle toename in spiermassa",
+      "Verhoogde kracht binnen enkele dagen",
+      "Verbeterde stikstofretentie",
+      "Verhoogde eiwitynthese",
+      "Verbeterd herstel"
+    ],
+    warnings: [
+      "Levertoxisch - gebruik leverondersteuning",
+      "Aromatiseert naar oestrogeen",
+      "Kan vochtretentie veroorzaken",
+      "Niet langer dan 6 weken gebruiken",
+      "Post Cycle Therapy noodzakelijk"
+    ],
+    ingredients: "Methandienone 10mg per tablet, microkristallijne cellulose, magnesiumstearaat"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "winstrol",
@@ -369,6 +480,29 @@ export const products: Product[] = [
     brand: "ENDOGENIC",
     quantity: "5 mg",
     priceEur: 37.59,
+<<<<<<< HEAD
+=======
+    image: "/attached_assets/Endogenic peptydy_1762048163392.png",
+    description: "BPC-157 is een synthetisch peptide dat bestaat uit 15 aminozuren. Het is afgeleid van een beschermend maageiwit en staat bekend om zijn helende eigenschappen.",
+    usage: "Subcutane of intramusculaire injectie, bij voorkeur nabij het te behandelen gebied",
+    dosage: "200-500 mcg per dag, verdeeld over 1-2 injecties. Cyclus van 4-6 weken",
+    benefits: [
+      "Versneld herstel van pezen en ligamenten",
+      "Bevordert wondgenezing",
+      "Anti-inflammatoire eigenschappen",
+      "Beschermt en geneest het maag-darmstelsel",
+      "Ondersteunt vasculaire gezondheid",
+      "Kan helpen bij gewrichtspijn"
+    ],
+    warnings: [
+      "Alleen voor onderzoeksdoeleinden",
+      "Raadpleeg een arts voor therapeutisch gebruik",
+      "Bewaar in koelkast na reconstitutie",
+      "Gebruik steriel water voor reconstitutie",
+      "Niet geschikt tijdens zwangerschap"
+    ],
+    ingredients: "BPC-157 peptide 5mg, mannitol als stabilisator"
+>>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "epithalon",
