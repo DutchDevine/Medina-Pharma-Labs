@@ -1,0 +1,44 @@
+💉 Steroidowe preparaty iniekcyjne (injecteerbare steroïden)
+Handelsnaam (uit lijst)	Chemische naam	Stężenie	Ilość	Cena detal	Cena hurtowa (≥5)
+GH ENDOGENIC	Somatotropina (HGH – Human Growth Hormone)	100 IU	10×10 IU	650 zł	640 zł
+TEST ENAN	Testosteron Enanthate	300 mg/ml	10 ml	100 zł	90 zł
+TEST CYPIO	Testosteron Cypionate	300 mg/ml	10 ml	100 zł	90 zł
+TEST SUSTA	Testosteron mix (Sustanon 300)	300 mg/ml	10 ml	100 zł	90 zł
+TEST PROP	Testosteron Propionate	100 mg/ml	10 ml	90 zł	80 zł
+DEKANIAN	Nandrolone Decanoate	400 mg/ml	10 ml	120 zł	110 zł
+TRITEST	Testosteron blend (Enanthate/Cypionate/Propionate)	450 mg/ml	10 ml	120 zł	110 zł
+BOLDENON	Boldenone Undecylenate	300 mg/ml	10 ml	120 zł	110 zł
+DEKA	Nandrolone Decanoate	300 mg/ml	10 ml	120 zł	110 zł
+NPP	Nandrolone Phenylpropionate	100 mg/ml	10 ml	110 zł	100 zł
+MASTERON P	Drostanolone Propionate	100 mg/ml	10 ml	130 zł	120 zł
+MASTERON E	Drostanolone Enanthate	200 mg/ml	10 ml	150 zł	140 zł
+TREN A	Trenbolone Acetate	100 mg/ml	10 ml	130 zł	120 zł
+TREN E	Trenbolone Enanthate	200 mg/ml	10 ml	140 zł	130 zł
+TREN HEXA	Trenbolone Hexahydrobenzylcarbonate (Parabolan)	100 mg/ml	10 ml	180 zł	170 zł
+DHB	1-Testosterone Cypionate (Dihydroboldenone)	100 mg/ml	10 ml	140 zł	130 zł
+MENT	Trestolone Acetate (MENT)	50 mg/ml	10 ml	180 zł	170 zł
+PRIMABOLAN	Methenolone Enanthate	100 mg/ml	10 ml	190 zł	180 zł
+META INJ	Methandienone (Dianabol) – injectable	50 mg/ml	10 ml	110 zł	100 zł
+ANAPOLON INJ	Oxymetholone – injectable	50 mg/ml	10 ml	110 zł	100 zł
+WINSTROL (inj.)	Stanozolol – injectable	50 mg/ml	10 ml	110 zł	100 zł
+🧪 HCG (Gonadotropiny)
+Handelsnaam	Chemische naam	Ilość	Cena detal	Cena hurtowa
+HCG ENDOGENIC	Chorionic Gonadotropin	5000 IU	110 zł	100 zł
+HCG PREGNYL	Chorionic Gonadotropin (Pregnyl®)	5000 IU	80 zł	70 zł
+HCG MAGNUS	Chorionic Gonadotropin (Magnus)	5000 IU	80 zł	70 zł
+HCG POLPHA GENETIC	Chorionic Gonadotropin (Polfa)	5000 IU	120 zł	110 zł
+💊 Tabletki / środki doustne
+Handelsnaam	Chemische naam	Dawka	Ilość	Cena detal	Cena hurtowa
+META	Methandienone (Dianabol)	10 mg/tab	100 tab	90 zł	80 zł
+WINSTROL	Stanozolol	10 mg/tab	100 tab	100 zł	90 zł
+TURA	Turinabol (Chlorodehydromethyltestosterone)	10 mg/tab	100 tab	120 zł	110 zł
+OXA	Oxandrolone	10 mg/tab	100 tab	180 zł	170 zł
+ANAPOLON	Oxymetholone	50 mg/tab	100 tab	170 zł	160 zł
+YOHIMBINA	Yohimbine HCl	10 mg/tab	100 tab	110 zł	100 zł
+⚗️ SARM-y (Selective Androgen Receptor Modulators)
+Handelsnaam	Chemische naam	Dawka	Ilość	Cena detal	Cena hurtowa
+SR9011	SR9011 (Rev-ErbA Agonist)	5 mg/tab	100 tab	140 zł	130 zł
+GW	GW501516 (Cardarine)	10 mg/tab	100 tab	150 zł	140 zł
+MK677	Ibutamoren (MK-677)	10 mg/tab	100 tab	160 zł	150 zł
+OSTARINA	Ostarine (MK-2866)	10 mg/tab	100 tab	130 zł	120 zł
+SR9009	SR9009 (Stenabolic)	10 mg/tab	100 tab	180 zł	170 zł
