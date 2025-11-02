@@ -28,6 +28,7 @@ export default function Header({
   const navLinks = [
     { path: "/", label: "Producten" },
     { path: "/over-ons", label: "Over Ons" },
+    { path: "/faq", label: "FAQ" },
   ];
 
   const categories = [
