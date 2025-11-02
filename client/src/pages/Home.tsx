@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import type { CartItem, Product } from "@shared/schema";
-import { products, categoryNames, categoryIcons } from "@/lib/products";
+import { categoryNames, categoryIcons } from "@/lib/products";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CategorySection from "@/components/CategorySection";
@@ -14,6 +15,10 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const { toast } = useToast();
+
+  const { data: products = [], isLoading } = useQuery<Product[]>({
+    queryKey: ["/api/products"],
+  });
 
   const handleAddToCart = (product: Product) => {
     setCartItems((prev) => {
@@ -59,7 +64,7 @@ export default function Home() {
 
       return matchesSearch && matchesCategory;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [products, searchQuery, selectedCategory]);
 
   const groupedProducts = useMemo(() => {
     const groups: Record<string, Product[]> = {};
@@ -80,6 +85,17 @@ export default function Home() {
       catalogElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"></div>
+          <p className="mt-4 text-muted-foreground">Producten laden...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col">
