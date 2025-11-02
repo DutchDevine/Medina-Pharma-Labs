@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart } from "lucide-react";
+import { useLocation } from "wouter";
 
 interface ProductCardProps {
   product: Product;
@@ -10,16 +11,34 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onAddToCart }: ProductCardProps) {
+  const [, setLocation] = useLocation();
+  
   const getCategoryBadgeVariant = () => {
     if (product.category.includes("Peptide")) return "default";
     if (product.category.includes("HCG")) return "secondary";
     return "outline";
   };
 
+  const handleCardClick = () => {
+    setLocation(`/product/${product.id}`);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setLocation(`/product/${product.id}`);
+    }
+  };
+
   return (
     <Card 
       className="hover-elevate overflow-hidden group cursor-pointer h-full flex flex-col shadow-md"
       data-testid={`card-product-${product.id}`}
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${product.name}`}
     >
       <CardContent className="p-6 flex flex-col flex-1">
         {/* Header with Badge and Brand */}
