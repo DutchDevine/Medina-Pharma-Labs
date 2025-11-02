@@ -124,11 +124,25 @@ export default function ProductDetail() {
               <Card className="overflow-hidden">
                 <CardContent className="p-0">
                   {product.image ? (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-auto object-contain bg-gray-50"
-                    />
+                    <>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-auto object-contain bg-gray-50"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const fallback = target.parentElement?.querySelector('.fallback-icon') as HTMLDivElement;
+                          if (fallback) fallback.style.display = 'flex';
+                        }}
+                      />
+                      <div 
+                        className="fallback-icon w-full h-96 items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5"
+                        style={{ display: 'none' }}
+                      >
+                        <Beaker className="h-24 w-24 text-primary/30" />
+                      </div>
+                    </>
                   ) : (
                     <div className="w-full h-96 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
                       <Beaker className="h-24 w-24 text-primary/30" />

@@ -23,11 +23,22 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
     setLocation(`/product/${product.id}`);
   };
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setLocation(`/product/${product.id}`);
+    }
+  };
+
   return (
     <Card 
       className="hover-elevate overflow-hidden group cursor-pointer h-full flex flex-col shadow-md"
       data-testid={`card-product-${product.id}`}
       onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${product.name}`}
     >
       <CardContent className="p-6 flex flex-col flex-1">
         {/* Header with Badge and Brand */}
