@@ -32,6 +32,13 @@ export interface Product {
   concentration?: string;
   quantity?: string;
   priceEur: number;
+  image?: string;
+  description?: string;
+  usage?: string;
+  dosage?: string;
+  benefits?: string[];
+  warnings?: string[];
+  ingredients?: string;
 }
 
 export interface CartItem {
