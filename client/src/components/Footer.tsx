@@ -100,7 +100,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => {}} className="hover:text-primary transition-colors text-left">
+                <button onClick={() => setLocation("/retourneren")} className="hover:text-primary transition-colors text-left">
                   Retourneren
                 </button>
               </li>
