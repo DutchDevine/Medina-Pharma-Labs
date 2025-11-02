@@ -19,10 +19,11 @@ export default function ProductDetail() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { toast } = useToast();
 
-  const { data: product, isLoading, error } = useQuery<Product>({
-    queryKey: [`/api/products/${params?.id}`],
-    enabled: !!params?.id,
+  const { data: products, isLoading, error } = useQuery<Product[]>({
+    queryKey: ["/api/products"],
   });
+
+  const product = products?.find((p) => p.id === params?.id);
 
   const handleAddToCart = (product: Product) => {
     setCartItems((prev) => {
