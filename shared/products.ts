@@ -11,8 +11,6 @@ export const products: Product[] = [
     concentration: "100 IU",
     quantity: "10×10 IU",
     priceEur: 222.05,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/Bez tytułu_1762047957578.png",
     description: "GH Endogenic is recombinant menselijk groeihormoon (HGH) van farmaceutische kwaliteit. Het bevordert spiergroei, vetverbranding en herstel.",
     usage: "Subcutane of intramusculaire injectie, dagelijks of meerdere keren per dag",
@@ -33,7 +31,6 @@ export const products: Product[] = [
       "Bewaar gekoeld tussen 2-8°C"
     ],
     ingredients: "Somatropine (recombinant HGH) 10 IU per flacon, mannitol, natriumfosfaat buffer"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "test-enan",
@@ -44,8 +41,6 @@ export const products: Product[] = [
     concentration: "300 mg/ml",
     quantity: "10 ml",
     priceEur: 34.16,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/image_1762051320696.png",
     description: "Test Enan (Testosteron Enanthate) is een langwerkend testosteron ester dat wordt gebruikt voor spiergroei en kracht. Het is een van de meest populaire anabole steroïden voor massa-opbouw.",
     usage: "Intramusculaire injectie, meestal 1-2 keer per week",
@@ -65,7 +60,6 @@ export const products: Product[] = [
       "Post Cycle Therapy (PCT) is noodzakelijk"
     ],
     ingredients: "Testosteron Enanthate 300mg/ml, Benzyl Alcohol, Benzyl Benzoate, Druivenpitolie"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "test-cypio",
@@ -176,8 +170,6 @@ export const products: Product[] = [
     concentration: "100 mg/ml",
     quantity: "10 ml",
     priceEur: 44.42,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/image_1762051320696.png",
     description: "Trenbolone Acetate is een van de krachtigste anabole steroïden beschikbaar. Het staat bekend om zijn vermogen om spiermassa en kracht dramatisch te verhogen.",
     usage: "Intramusculaire injectie, om de dag of dagelijks vanwege korte halfwaardetijd",
@@ -197,7 +189,6 @@ export const products: Product[] = [
       "Medisch toezicht sterk aanbevolen"
     ],
     ingredients: "Trenbolone Acetate 100mg/ml, Benzyl Alcohol, Benzyl Benzoate, Druivenpitolie"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "tren-e",
@@ -288,8 +279,6 @@ export const products: Product[] = [
     brand: "ENDOGENIC",
     quantity: "5000 IU",
     priceEur: 37.59,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/Endogenic peptydy_1762048163392.png",
     description: "HCG (Human Chorionic Gonadotropin) wordt gebruikt om de natuurlijke testosteronproductie te stimuleren, vooral belangrijk tijdens en na steroïde cycli.",
     usage: "Subcutane of intramusculaire injectie, 2-3 keer per week",
@@ -309,7 +298,6 @@ export const products: Product[] = [
       "Medisch advies aanbevolen"
     ],
     ingredients: "HCG 5000 IU, mannitol, natriumfosfaat buffer, steriel water (apart verpakt)"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "hcg-pregnyl",
@@ -348,8 +336,6 @@ export const products: Product[] = [
     concentration: "10 mg/tab",
     quantity: "100 tabletten",
     priceEur: 30.74,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/image_1762051320696.png",
     description: "Methandienone, ook bekend als Dianabol, is een van de populairste orale anabole steroïden voor snelle massa-opbouw en krachttoename.",
     usage: "Oraal, met voedsel innemen voor betere maagvertraging",
@@ -369,7 +355,6 @@ export const products: Product[] = [
       "Post Cycle Therapy noodzakelijk"
     ],
     ingredients: "Methandienone 10mg per tablet, microkristallijne cellulose, magnesiumstearaat"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "winstrol",
@@ -480,8 +465,6 @@ export const products: Product[] = [
     brand: "ENDOGENIC",
     quantity: "5 mg",
     priceEur: 37.59,
-<<<<<<< HEAD
-=======
     image: "/attached_assets/Endogenic peptydy_1762048163392.png",
     description: "BPC-157 is een synthetisch peptide dat bestaat uit 15 aminozuren. Het is afgeleid van een beschermend maageiwit en staat bekend om zijn helende eigenschappen.",
     usage: "Subcutane of intramusculaire injectie, bij voorkeur nabij het te behandelen gebied",
@@ -502,7 +485,6 @@ export const products: Product[] = [
       "Niet geschikt tijdens zwangerschap"
     ],
     ingredients: "BPC-157 peptide 5mg, mannitol als stabilisator"
->>>>>>> 34a4f782f312307699de96b76e2c43780e1deb25
   },
   {
     id: "epithalon",
