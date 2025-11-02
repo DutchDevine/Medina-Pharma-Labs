@@ -1,9 +1,9 @@
-import { ShoppingCart, Search } from "lucide-react";
+import { ShoppingCart, Search, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Link, useLocation } from "wouter";
-import medinaLogo from "@assets/Bez tytułu_1762047957578.png";
+import { useLocation } from "wouter";
+import { useState } from "react";
 
 interface HeaderProps {
   cartItemCount: number;
@@ -23,7 +23,12 @@ export default function Header({
   onCategoryChange,
 }: HeaderProps) {
   const [location, setLocation] = useLocation();
-  const isHomePage = location === "/";
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { path: "/", label: "Producten" },
+    { path: "/over-ons", label: "Over Ons" },
+  ];
 
   const categories = [
     { id: "all", label: "Alle Producten" },
@@ -34,40 +39,37 @@ export default function Header({
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto px-4">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-sm">
+      <div className="container mx-auto px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
+          {/* Brand */}
           <div 
             onClick={() => setLocation("/")}
-            className="flex items-center gap-6 cursor-pointer hover-elevate p-2 rounded-lg transition-all"
+            className="cursor-pointer group flex items-center gap-2"
           >
-            <img 
-              src={medinaLogo} 
-              alt="MEDINA PharmaLabs" 
-              className="h-10 w-10"
-              data-testid="img-logo"
-            />
-            <div className="hidden md:block">
-              <h1 className="text-lg font-bold text-foreground" data-testid="text-site-title">
-                MEDINA PharmaLabs
-              </h1>
-              <p className="text-xs text-muted-foreground">
-                Professionele Farmaceutische Producten
-              </p>
-            </div>
+            <h1 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors" data-testid="text-site-title">
+              MEDINA Pharma Labs
+            </h1>
           </div>
 
-          <div className="flex items-center gap-4">
-            <Button 
-              variant={location === "/over-ons" ? "default" : "ghost"}
-              onClick={() => setLocation("/over-ons")}
-              data-testid="button-about-nav"
-            >
-              Over Ons
-            </Button>
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <Button
+                key={link.path}
+                variant={location === link.path ? "default" : "ghost"}
+                onClick={() => setLocation(link.path)}
+                data-testid={`button-nav-${link.label.toLowerCase().replace(' ', '-')}`}
+              >
+                {link.label}
+              </Button>
+            ))}
+          </nav>
 
-            {isHomePage && (
-              <div className="relative flex-1 max-w-xl hidden sm:block">
+          {/* Right Actions */}
+          <div className="flex items-center gap-2">
+            {location === "/" && (
+              <div className="relative hidden lg:block w-64">
                 <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   type="search"
@@ -98,11 +100,57 @@ export default function Header({
                 </Badge>
               )}
             </Button>
+
+            {/* Mobile Menu Toggle */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
 
-        {isHomePage && (
-          <div className="flex gap-2 overflow-x-auto pb-3 pt-2">
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t py-4">
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => (
+                <Button
+                  key={link.path}
+                  variant={location === link.path ? "default" : "ghost"}
+                  onClick={() => {
+                    setLocation(link.path);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="justify-start"
+                >
+                  {link.label}
+                </Button>
+              ))}
+            </nav>
+            {location === "/" && (
+              <div className="relative mt-4">
+                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="search"
+                  placeholder="Zoek producten..."
+                  value={searchQuery}
+                  onChange={(e) => onSearchChange(e.target.value)}
+                  className="pl-9"
+                  data-testid="input-search-mobile"
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Category Filters - Only on homepage */}
+        {location === "/" && (
+          <div className="flex gap-2 overflow-x-auto pb-3 pt-2 border-t">
             {categories.map((cat) => (
               <Button
                 key={cat.id}
