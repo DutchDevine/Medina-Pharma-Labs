@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useLocation } from "wouter";
 import { useState } from "react";
+import medinaLogo from "@assets/Bez tytułu_1762084726356.png";
 
 interface HeaderProps {
   cartItemCount: number;
@@ -45,9 +46,15 @@ export default function Header({
           {/* Brand */}
           <div 
             onClick={() => setLocation("/")}
-            className="cursor-pointer group flex items-center gap-2"
+            className="cursor-pointer group flex items-center gap-3"
+            data-testid="link-home"
           >
-            <h1 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors" data-testid="text-site-title">
+            <img 
+              src={medinaLogo} 
+              alt="MEDINA Pharma Labs" 
+              className="h-12 w-12 object-contain"
+            />
+            <h1 className="hidden sm:block text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors" data-testid="text-site-title">
               MEDINA Pharma Labs
             </h1>
           </div>

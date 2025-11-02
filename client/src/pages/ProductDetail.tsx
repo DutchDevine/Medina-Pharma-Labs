@@ -11,6 +11,8 @@ import { useState } from "react";
 import CartSidebar from "@/components/CartSidebar";
 import type { CartItem } from "@shared/schema";
 import { useToast } from "@/hooks/use-toast";
+import medinaLogo from "@assets/Bez tytułu_1762084726356.png";
+import endogenicLogo from "@assets/Endogenic peptydy_1762084722094.png";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:id");
@@ -161,9 +163,11 @@ export default function ProductDetail() {
                     {product.category}
                   </Badge>
                   {product.brand && (
-                    <span className="text-sm font-mono uppercase tracking-widest text-muted-foreground">
-                      {product.brand}
-                    </span>
+                    <img 
+                      src={product.brand === "ENDOGENIC" ? endogenicLogo : medinaLogo} 
+                      alt={product.brand}
+                      className="h-12 object-contain ml-auto"
+                    />
                   )}
                 </div>
                 

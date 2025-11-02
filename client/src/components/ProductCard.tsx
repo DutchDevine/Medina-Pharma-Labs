@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ShoppingCart } from "lucide-react";
 import { useLocation } from "wouter";
+import medinaLogo from "@assets/Bez tytułu_1762084726356.png";
+import endogenicLogo from "@assets/Endogenic peptydy_1762084722094.png";
 
 interface ProductCardProps {
   product: Product;
@@ -41,15 +43,17 @@ export default function ProductCard({ product, onAddToCart }: ProductCardProps) 
       aria-label={`Bekijk details van ${product.name}`}
     >
       <CardContent className="p-6 flex flex-col flex-1">
-        {/* Header with Badge and Brand */}
+        {/* Header with Badge and Brand Logo */}
         <div className="flex items-start justify-between mb-4">
           <Badge variant={getCategoryBadgeVariant()} className="text-xs">
             {product.category}
           </Badge>
           {product.brand && (
-            <span className="text-xs font-mono uppercase tracking-widest text-muted-foreground">
-              {product.brand}
-            </span>
+            <img 
+              src={product.brand === "ENDOGENIC" ? endogenicLogo : medinaLogo} 
+              alt={product.brand}
+              className="h-8 object-contain"
+            />
           )}
         </div>
 

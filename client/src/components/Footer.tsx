@@ -2,6 +2,8 @@ import { useLocation } from "wouter";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import medinaLogo from "@assets/Bez tytułu_1762084726356.png";
+import endogenicLogo from "@assets/Endogenic peptydy_1762084722094.png";
 
 export default function Footer() {
   const [, setLocation] = useLocation();
@@ -12,6 +14,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
+            <div className="flex items-center gap-4 mb-6">
+              <img 
+                src={medinaLogo} 
+                alt="MEDINA Pharma Labs" 
+                className="h-16 w-16 object-contain"
+              />
+              <img 
+                src={endogenicLogo} 
+                alt="ENDOGENIC" 
+                className="h-12 object-contain"
+              />
+            </div>
             <h3 className="text-xl font-bold mb-4">MEDINA Pharma Labs</h3>
             <p className="text-sm text-muted-foreground mb-4 max-w-sm">
               Toonaangevend in farmaceutisch onderzoek en productie. 
