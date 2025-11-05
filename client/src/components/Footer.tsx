@@ -28,8 +28,8 @@ export default function Footer() {
             </div>
             <h3 className="text-lg font-bold mb-3">MEDINA Pharma Labs</h3>
             <p className="text-sm text-muted-foreground mb-3 max-w-sm">
-              Toonaangevend in farmaceutisch onderzoek en productie. 
-              Van herstel naar prestatie - met precisie en wetenschap.
+              Uw vertrouwde partner in geavanceerde farmaceutische oplossingen. 
+              Gespecialiseerd in hoogwaardige formuleringen voor professioneel en klinisch gebruik sinds 2014.
             </p>
             <div className="space-y-1.5 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -130,9 +130,9 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="mt-8 pt-6 border-t">
           <div className="max-w-md">
-            <h4 className="font-semibold mb-1.5 text-sm">Blijf op de hoogte</h4>
+            <h4 className="font-semibold mb-1.5 text-sm">Blijf op de Hoogte</h4>
             <p className="text-xs text-muted-foreground mb-3">
-              Ontvang updates over nieuwe producten en onderzoek.
+              Ontvang exclusieve updates over nieuwe productlanceringen, wetenschappelijke ontwikkelingen en speciaal aanbod.
             </p>
             <div className="flex gap-2">
               <Input 
