@@ -12,37 +12,37 @@ export default function Hero({ onBrowseClick }: HeroProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10">
+      <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-background to-primary/10">
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25" />
         
-        <div className="container mx-auto px-6 lg:px-8 py-24 relative z-10">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-tight" data-testid="text-hero-title">
+        <div className="container mx-auto px-4 lg:px-6 py-12 relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="space-y-3">
+              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight" data-testid="text-hero-title">
                 Vooruitgang in
-                <span className="block text-primary mt-2">Farmaceutische Excellentie</span>
+                <span className="block text-primary mt-1">Farmaceutische Excellentie</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto" data-testid="text-hero-subtitle">
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto" data-testid="text-hero-subtitle">
                 Wetenschappelijke innovatie en kwaliteit sinds 2014. Van herstel naar prestatie.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 justify-center pt-6">
+            <div className="flex flex-wrap gap-3 justify-center pt-4">
               <Button 
                 size="lg" 
                 onClick={onBrowseClick}
-                className="text-lg px-8 py-6"
+                className="px-6 py-5"
                 data-testid="button-browse-catalog"
               >
                 Verken Producten
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 onClick={() => setLocation("/over-ons")}
-                className="text-lg px-8 py-6 backdrop-blur-sm"
+                className="px-6 py-5 backdrop-blur-sm"
                 data-testid="button-about"
               >
                 Ons Onderzoek
@@ -50,27 +50,18 @@ export default function Hero({ onBrowseClick }: HeroProps) {
             </div>
 
             {/* Trust Indicators */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto">
-              <div className="flex items-center justify-center gap-3 p-4 rounded-lg bg-background/50 backdrop-blur-sm border">
-                <Award className="h-6 w-6 text-primary" />
-                <div className="text-left">
-                  <p className="font-semibold">10+ Jaren</p>
-                  <p className="text-sm text-muted-foreground">Onderzoek</p>
-                </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-6 max-w-3xl mx-auto">
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-background/50 backdrop-blur-sm border text-sm">
+                <Award className="h-4 w-4 text-primary" />
+                <span className="font-semibold">10+ Jaren</span>
               </div>
-              <div className="flex items-center justify-center gap-3 p-4 rounded-lg bg-background/50 backdrop-blur-sm border">
-                <Shield className="h-6 w-6 text-primary" />
-                <div className="text-left">
-                  <p className="font-semibold">EU Certified</p>
-                  <p className="text-sm text-muted-foreground">Kwaliteit</p>
-                </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-background/50 backdrop-blur-sm border text-sm">
+                <Shield className="h-4 w-4 text-primary" />
+                <span className="font-semibold">EU Certified</span>
               </div>
-              <div className="flex items-center justify-center gap-3 p-4 rounded-lg bg-background/50 backdrop-blur-sm border">
-                <Microscope className="h-6 w-6 text-primary" />
-                <div className="text-left">
-                  <p className="font-semibold">80+ Producten</p>
-                  <p className="text-sm text-muted-foreground">Catalogus</p>
-                </div>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-background/50 backdrop-blur-sm border text-sm">
+                <Microscope className="h-4 w-4 text-primary" />
+                <span className="font-semibold">80+ Producten</span>
               </div>
             </div>
           </div>
@@ -78,27 +69,24 @@ export default function Hero({ onBrowseClick }: HeroProps) {
       </section>
 
       {/* Company Overview Section */}
-      <section className="py-24 bg-muted/30">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4 lg:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
             {/* Mission Statement */}
-            <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl font-bold tracking-tight">
+            <div className="space-y-4">
+              <h2 className="text-3xl lg:text-4xl font-bold tracking-tight">
                 Van Herstel naar Prestatie
               </h2>
-              <div className="prose prose-lg max-w-none">
-                <p className="text-lg text-muted-foreground leading-relaxed">
+              <div className="prose max-w-none">
+                <p className="text-base text-muted-foreground leading-relaxed">
                   Bij MEDINA Pharma Labs geloven we dat de toekomst van gezondheid niet ligt in genezing, maar in optimalisatie. 
                   Wij onderzoeken hoe het menselijk lichaam kan herstellen, aanpassingsvermogen kan vergroten en zijn grenzen op een gecontroleerde manier kan verleggen.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed mt-4">
-                  Onze taak is niet om de natuur te vervangen, maar om haar te verfijnen — met precisie, discipline en wetenschap als fundament.
                 </p>
               </div>
               <Button 
                 variant="outline" 
                 onClick={() => setLocation("/over-ons")}
-                className="mt-6"
+                size="sm"
               >
                 Lees Meer
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -106,28 +94,28 @@ export default function Hero({ onBrowseClick }: HeroProps) {
             </div>
 
             {/* Statistics Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              <div className="bg-background p-6 rounded-xl border shadow-sm">
-                <p className="text-5xl font-bold text-primary mb-2">80+</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wide">
-                  Producten Ontwikkeld
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-background p-4 rounded-lg border shadow-sm">
+                <p className="text-3xl font-bold text-primary mb-1">80+</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                  Producten
                 </p>
               </div>
-              <div className="bg-background p-6 rounded-xl border shadow-sm">
-                <p className="text-5xl font-bold text-primary mb-2">15+</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wide">
-                  Landen Bediend
+              <div className="bg-background p-4 rounded-lg border shadow-sm">
+                <p className="text-3xl font-bold text-primary mb-1">15+</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                  Landen
                 </p>
               </div>
-              <div className="bg-background p-6 rounded-xl border shadow-sm">
-                <p className="text-5xl font-bold text-primary mb-2">2014</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wide">
-                  Sinds Opgericht
+              <div className="bg-background p-4 rounded-lg border shadow-sm">
+                <p className="text-3xl font-bold text-primary mb-1">2014</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">
+                  Opgericht
                 </p>
               </div>
-              <div className="bg-background p-6 rounded-xl border shadow-sm">
-                <p className="text-5xl font-bold text-primary mb-2">100%</p>
-                <p className="text-sm text-muted-foreground uppercase tracking-wide">
+              <div className="bg-background p-4 rounded-lg border shadow-sm">
+                <p className="text-3xl font-bold text-primary mb-1">100%</p>
+                <p className="text-xs text-muted-foreground uppercase tracking-wide">
                   EU Compliance
                 </p>
               </div>
@@ -137,18 +125,18 @@ export default function Hero({ onBrowseClick }: HeroProps) {
       </section>
 
       {/* Product Categories Overview */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">
+      <section className="py-12">
+        <div className="container mx-auto px-4 lg:px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2">
               Onze Productcategorieën
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto">
               Wetenschappelijk onderbouwde producten voor onderzoek en professioneel gebruik
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
             {[
               {
                 title: "Injecteerbare Steroïden",
@@ -173,14 +161,14 @@ export default function Hero({ onBrowseClick }: HeroProps) {
             ].map((category) => (
               <div
                 key={category.title}
-                className="group p-6 rounded-xl border bg-card hover-elevate cursor-pointer transition-all"
+                className="group p-4 rounded-lg border bg-card hover-elevate cursor-pointer transition-all"
                 onClick={onBrowseClick}
               >
-                <div className="text-4xl mb-4">{category.icon}</div>
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                <div className="text-3xl mb-3">{category.icon}</div>
+                <h3 className="text-lg font-semibold mb-1 group-hover:text-primary transition-colors">
                   {category.title}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-xs text-muted-foreground">
                   {category.description}
                 </p>
               </div>

@@ -9,35 +9,35 @@ export default function Footer() {
   const [, setLocation] = useLocation();
 
   return (
-    <footer className="border-t bg-muted/30 mt-32">
-      <div className="container mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+    <footer className="border-t bg-muted/30 mt-16">
+      <div className="container mx-auto px-4 lg:px-6 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <img 
                 src={medinaLogo} 
                 alt="MEDINA Pharma Labs" 
-                className="h-16 w-16 object-contain"
+                className="h-12 w-12 object-contain"
               />
               <img 
                 src={endogenicLogo} 
                 alt="ENDOGENIC" 
-                className="h-12 object-contain"
+                className="h-10 object-contain"
               />
             </div>
-            <h3 className="text-xl font-bold mb-4">MEDINA Pharma Labs</h3>
-            <p className="text-sm text-muted-foreground mb-4 max-w-sm">
+            <h3 className="text-lg font-bold mb-3">MEDINA Pharma Labs</h3>
+            <p className="text-sm text-muted-foreground mb-3 max-w-sm">
               Toonaangevend in farmaceutisch onderzoek en productie. 
               Van herstel naar prestatie - met precisie en wetenschap.
             </p>
-            <div className="space-y-2 text-sm text-muted-foreground">
+            <div className="space-y-1.5 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" />
+                <MapPin className="h-3.5 w-3.5" />
                 <span>ul. Mokotowska 21, 00-640 Warszawa, Polen</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
+                <Mail className="h-3.5 w-3.5" />
                 <a href="mailto:research@medinapharmalabs.eu" className="hover:text-primary transition-colors">
                   research@medinapharmalabs.eu
                 </a>
@@ -47,8 +47,8 @@ export default function Footer() {
 
           {/* Products Column */}
           <div>
-            <h4 className="font-semibold mb-4">Producten</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold mb-3 text-sm">Producten</h4>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               <li>
                 <button onClick={() => setLocation("/")} className="hover:text-primary transition-colors text-left">
                   Injecteerbare Steroïden
@@ -74,8 +74,8 @@ export default function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="font-semibold mb-4">Bedrijf</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold mb-3 text-sm">Bedrijf</h4>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               <li>
                 <button onClick={() => setLocation("/over-ons")} className="hover:text-primary transition-colors text-left">
                   Over Ons
@@ -101,8 +101,8 @@ export default function Footer() {
 
           {/* Support Column */}
           <div>
-            <h4 className="font-semibold mb-4">Support</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="font-semibold mb-3 text-sm">Support</h4>
+            <ul className="space-y-1.5 text-sm text-muted-foreground">
               <li>
                 <button onClick={() => {}} className="hover:text-primary transition-colors text-left">
                   FAQ
@@ -128,20 +128,20 @@ export default function Footer() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="mt-12 pt-8 border-t">
+        <div className="mt-8 pt-6 border-t">
           <div className="max-w-md">
-            <h4 className="font-semibold mb-2">Blijf op de hoogte</h4>
-            <p className="text-sm text-muted-foreground mb-4">
+            <h4 className="font-semibold mb-1.5 text-sm">Blijf op de hoogte</h4>
+            <p className="text-xs text-muted-foreground mb-3">
               Ontvang updates over nieuwe producten en onderzoek.
             </p>
             <div className="flex gap-2">
               <Input 
                 type="email" 
                 placeholder="Uw e-mailadres" 
-                className="flex-1"
+                className="flex-1 h-9 text-sm"
                 data-testid="input-newsletter"
               />
-              <Button data-testid="button-subscribe">
+              <Button size="sm" data-testid="button-subscribe">
                 Inschrijven
               </Button>
             </div>
@@ -149,9 +149,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
+        <div className="mt-8 pt-6 border-t text-center text-xs text-muted-foreground">
           <p>&copy; {new Date().getFullYear()} MEDINA Pharma Labs. Alle rechten voorbehouden.</p>
-          <div className="flex items-center justify-center gap-6 mt-4">
+          <div className="flex items-center justify-center gap-4 mt-3">
             <button onClick={() => {}} className="hover:text-primary transition-colors">
               Privacy
             </button>
