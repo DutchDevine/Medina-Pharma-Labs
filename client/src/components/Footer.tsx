@@ -130,7 +130,7 @@ export default function Footer() {
         {/* Newsletter Section */}
         <div className="mt-8 pt-6 border-t">
           <div className="max-w-md">
-            <h4 className="font-semibold mb-1.5 text-sm">Blijf op de Hoogte</h4>
+            <h4 className="font-semibold mb-1.5 text-sm">Blijf op de hoogte</h4>
             <p className="text-xs text-muted-foreground mb-3">
               Ontvang exclusieve updates over nieuwe productlanceringen, wetenschappelijke ontwikkelingen en speciaal aanbod.
             </p>

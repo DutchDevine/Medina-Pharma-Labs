@@ -26,7 +26,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
               {/* Premium Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary mb-4 backdrop-blur-sm">
                 <Shield className="h-3.5 w-3.5" />
-                <span>EU Gecertificeerd • Farmaceutische Kwaliteit • Wetenschappelijk Gevalideerd</span>
+                <span>EU gecertificeerd • Farmaceutische kwaliteit • Wetenschappelijk gevalideerd</span>
               </div>
               
               <h1 className="text-4xl lg:text-6xl font-bold tracking-tight leading-tight" data-testid="text-hero-title">
@@ -50,7 +50,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 className="px-6 py-5 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
                 data-testid="button-browse-catalog"
               >
-                Bekijk Productcatalogus
+                Bekijk productcatalogus
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
@@ -60,7 +60,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 className="px-6 py-5 backdrop-blur-sm border-2 hover:bg-primary/5 hover:border-primary/50 transition-all duration-300"
                 data-testid="button-about"
               >
-                Wetenschappelijk Onderzoek
+                Wetenschappelijk onderzoek
               </Button>
             </div>
 
@@ -68,15 +68,15 @@ export default function Hero({ onBrowseClick }: HeroProps) {
             <div className="flex flex-wrap items-center justify-center gap-3 pt-6 max-w-3xl mx-auto">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 text-sm hover:shadow-lg transition-shadow">
                 <Award className="h-4 w-4 text-primary" />
-                <span className="font-semibold text-gray-700">10+ Jaren Expertise</span>
+                <span className="font-semibold text-gray-700">10+ jaren expertise</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 text-sm hover:shadow-lg transition-shadow">
                 <Shield className="h-4 w-4 text-green-600" />
-                <span className="font-semibold text-gray-700">ISO & EU Gecertificeerd</span>
+                <span className="font-semibold text-gray-700">ISO & EU gecertificeerd</span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm shadow-md border border-gray-100 text-sm hover:shadow-lg transition-shadow">
                 <Microscope className="h-4 w-4 text-blue-600" />
-                <span className="font-semibold text-gray-700">80+ Premium Producten</span>
+                <span className="font-semibold text-gray-700">80+ premium producten</span>
               </div>
             </div>
           </div>
@@ -91,10 +91,10 @@ export default function Hero({ onBrowseClick }: HeroProps) {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-medium mb-2">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-                Onze Visie
+                Onze visie
               </div>
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                Van Herstel naar Optimale Prestatie
+                Van herstel naar optimale prestatie
               </h2>
               <div className="prose max-w-none">
                 <p className="text-base text-gray-600 leading-relaxed">
@@ -112,7 +112,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 size="sm"
                 className="border-2 hover:border-primary/50 hover:bg-primary/5 transition-all group"
               >
-                Ontdek Onze Missie
+                Ontdek onze missie
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -127,7 +127,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 </div>
                 <p className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-1">80+</p>
                 <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                  Premium Formuleringen
+                  Premium formuleringen
                 </p>
               </div>
               <div className="bg-white p-5 rounded-xl border-2 border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group">
@@ -138,7 +138,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 </div>
                 <p className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-1">15+</p>
                 <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                  Landen Wereldwijd
+                  Landen wereldwijd
                 </p>
               </div>
               <div className="bg-white p-5 rounded-xl border-2 border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group">
@@ -149,7 +149,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 </div>
                 <p className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-1">2014</p>
                 <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                  Jaar van Oprichting
+                  Jaar van oprichting
                 </p>
               </div>
               <div className="bg-white p-5 rounded-xl border-2 border-gray-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group">
@@ -160,7 +160,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
                 </div>
                 <p className="text-3xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent mb-1">100%</p>
                 <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                  EU Gecertificeerd
+                  EU gecertificeerd
                 </p>
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function Hero({ onBrowseClick }: HeroProps) {
               Productportfolio
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-2 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-              Premium Productcategorieën
+              Premium productcategorieën
             </h2>
             <p className="text-base text-gray-600 max-w-2xl mx-auto">
               Wetenschappelijk ontwikkelde farmaceutische oplossingen voor professioneel gebruik en klinisch onderzoek
