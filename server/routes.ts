@@ -74,18 +74,29 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Generate images in the background
       generateProductImages(products, (completed, total, productName) => {
-        console.log(`Progress: ${completed}/${total} - Generated image for: ${productName}`);
+        console.log(`[Image Generation] Progress: ${completed}/${total} - Generated image for: ${productName}`);
       }).then(async (imageUrls) => {
         // Update all products with their new image URLs
+        let successCount = 0;
+        let errorCount = 0;
+        
         for (const [productId, imageUrl] of Array.from(imageUrls.entries())) {
-          await storage.updateProductImage(productId, imageUrl);
+          try {
+            await storage.updateProductImage(productId, imageUrl);
+            successCount++;
+          } catch (error) {
+            console.error(`[Image Generation] Failed to update product ${productId}:`, error);
+            errorCount++;
+          }
         }
-        console.log(`Successfully generated ${imageUrls.size} product images`);
+        
+        console.log(`[Image Generation] Completed: ${successCount} successful, ${errorCount} errors out of ${products.length} total products`);
       }).catch((error) => {
-        console.error("Error in batch image generation:", error);
+        console.error("[Image Generation] Fatal error in batch image generation:", error);
+        // In a production environment, this should trigger an alert/notification
       });
     } catch (error: any) {
-      console.error("Error starting batch image generation:", error);
+      console.error("[Image Generation] Error starting batch image generation:", error);
       res.status(500).json({ 
         error: "Failed to start image generation",
         message: error?.message || "Unknown error"

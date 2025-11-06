@@ -1,10 +1,25 @@
 import OpenAI from "openai";
 import type { Product } from "@shared/schema";
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY || "",
-});
+let openaiClient: OpenAI | null = null;
+
+/**
+ * Gets or initializes the OpenAI client
+ * @throws Error if OPENAI_API_KEY is not set
+ */
+function getOpenAIClient(): OpenAI {
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error("OPENAI_API_KEY environment variable is not set");
+  }
+  
+  if (!openaiClient) {
+    openaiClient = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+  }
+  
+  return openaiClient;
+}
 
 /**
  * Generates a product image using DALL-E based on product details
@@ -12,10 +27,8 @@ const openai = new OpenAI({
  * @returns The URL of the generated image
  */
 export async function generateProductImage(product: Product): Promise<string> {
-  if (!process.env.OPENAI_API_KEY) {
-    throw new Error("OPENAI_API_KEY environment variable is not set");
-  }
-
+  const openai = getOpenAIClient();
+  
   // Create a detailed prompt for DALL-E based on product information
   const prompt = createImagePrompt(product);
 
@@ -59,16 +72,18 @@ function createImagePrompt(product: Product): string {
     ? "MEDINA brand with modern professional design"
     : "ENDOGENIC brand with scientific medical design";
 
-  // Create a professional, pharmaceutical-focused prompt
-  const prompt = `A professional product photo of a ${categoryDesc} labeled "${product.name}". 
-The packaging features ${brandStyle}. 
-${product.concentration ? `Concentration: ${product.concentration}.` : ""}
-${product.quantity ? `Quantity: ${product.quantity}.` : ""}
-The image should look like a high-quality pharmaceutical product photograph with clean white background, 
-professional studio lighting, sharp focus on the product label showing "${product.name}" and "${product.brand}" branding. 
-Medical and professional aesthetic, suitable for a pharmacy or medical supplier catalog.`;
+  // Create a professional, pharmaceutical-focused prompt using structured parts
+  const promptParts = [
+    `A professional product photo of a ${categoryDesc} labeled "${product.name}".`,
+    `The packaging features ${brandStyle}.`,
+    product.concentration ? `Concentration: ${product.concentration}.` : null,
+    product.quantity ? `Quantity: ${product.quantity}.` : null,
+    `The image should look like a high-quality pharmaceutical product photograph with clean white background,`,
+    `professional studio lighting, sharp focus on the product label showing "${product.name}" and "${product.brand}" branding.`,
+    `Medical and professional aesthetic, suitable for a pharmacy or medical supplier catalog.`
+  ].filter(Boolean); // Remove null entries
 
-  return prompt.trim();
+  return promptParts.join(' ');
 }
 
 /**
