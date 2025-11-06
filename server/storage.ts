@@ -9,6 +9,7 @@ export interface IStorage {
   getAllProducts(): Promise<Product[]>;
   getProductById(id: string): Promise<Product | undefined>;
   getProductsByCategory(category: string): Promise<Product[]>;
+  updateProductImage(id: string, imageUrl: string): Promise<void>;
 }
 
 export class MemStorage implements IStorage {
@@ -54,6 +55,14 @@ export class MemStorage implements IStorage {
     return Array.from(this.products.values()).filter(
       product => product.category === category
     );
+  }
+
+  async updateProductImage(id: string, imageUrl: string): Promise<void> {
+    const product = this.products.get(id);
+    if (product) {
+      product.image = imageUrl;
+      this.products.set(id, product);
+    }
   }
 }
 
