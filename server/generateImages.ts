@@ -9,6 +9,7 @@
 
 import { products } from "../shared/products";
 import { generateProductImage, generateProductImages } from "./imageGenerator";
+import { storage } from "./storage";
 
 async function main() {
   const args = process.argv.slice(2);
@@ -66,6 +67,11 @@ async function main() {
       });
       
       console.log(`\n✓ Successfully generated ${imageUrls.size} images`);
+      
+      // Opslaan van afbeeldings-URLs direct na generatie
+      await storage.saveImageUrls(imageUrls);
+      console.log('✓ Afbeeldings-URLs opgeslagen in filestorage.');
+      
       console.log('\nGenerated images:');
       Array.from(imageUrls.entries()).forEach(([id, url]) => {
         const product = products.find(p => p.id === id);

@@ -10,6 +10,7 @@ export interface IStorage {
   getProductById(id: string): Promise<Product | undefined>;
   getProductsByCategory(category: string): Promise<Product[]>;
   updateProductImage(id: string, imageUrl: string): Promise<void>;
+  saveImageUrls(imageUrls: Map<string, string>): Promise<void>;
 }
 
 export class MemStorage implements IStorage {
@@ -62,6 +63,12 @@ export class MemStorage implements IStorage {
     if (product) {
       product.image = imageUrl;
       this.products.set(id, product);
+    }
+  }
+
+  async saveImageUrls(imageUrls: Map<string, string>): Promise<void> {
+    for (const [productId, imageUrl] of imageUrls.entries()) {
+      await this.updateProductImage(productId, imageUrl);
     }
   }
 }
