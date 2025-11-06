@@ -68,9 +68,9 @@ async function main() {
       
       console.log(`\n✓ Successfully generated ${imageUrls.size} images`);
       
-      // Opslaan van afbeeldings-URLs direct na generatie
+      // Save image URLs to storage
       await storage.saveImageUrls(imageUrls);
-      console.log('✓ Afbeeldings-URLs opgeslagen in filestorage.');
+      console.log('✓ Image URLs saved to storage.');
       
       console.log('\nGenerated images:');
       Array.from(imageUrls.entries()).forEach(([id, url]) => {
