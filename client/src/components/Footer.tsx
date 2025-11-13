@@ -109,7 +109,7 @@ export default function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => {}} className="hover:text-primary transition-colors text-left">
+                <button onClick={() => setLocation("/verzending")} className="hover:text-primary transition-colors text-left">
                   Verzending
                 </button>
               </li>
