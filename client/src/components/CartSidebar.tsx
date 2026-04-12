@@ -1,4 +1,5 @@
 import type { CartItem } from "@shared/schema";
+import { calculateDHLShipping, estimatePackageWeight } from "@shared/shipping";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -19,10 +20,13 @@ export default function CartSidebar({
   onUpdateQuantity,
   onRemoveItem,
 }: CartSidebarProps) {
-  const total = items.reduce(
+  const subTotal = items.reduce(
     (sum, item) => sum + item.product.priceEur * item.quantity,
     0
   );
+  const estimatedWeightGrams = estimatePackageWeight(items);
+  const shipping = calculateDHLShipping(estimatedWeightGrams);
+  const total = subTotal + shipping.price;
 
   if (!isOpen) return null;
 
@@ -133,6 +137,17 @@ export default function CartSidebar({
             </ScrollArea>
 
             <div className="border-t p-6 space-y-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-medium">Verzending (DHL vanuit Polen):</p>
+                  {items.length > 0 && (
+                    <p className="text-xs text-muted-foreground">~{estimatedWeightGrams}g</p>
+                  )}
+                </div>
+                <span className="text-sm font-semibold" data-testid="text-shipping-cost">
+                  {items.length === 0 ? "Gratis" : `€${shipping.price.toFixed(2)}`}
+                </span>
+              </div>
               <div className="flex items-center justify-between text-lg">
                 <span className="font-semibold">Totaal:</span>
                 <span className="text-2xl font-bold text-primary" data-testid="text-cart-total">

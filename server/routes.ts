@@ -2,8 +2,27 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { generateProductImage, generateProductImages } from "./imageGenerator";
+import { calculateDHLShipping, ORIGIN_COUNTRY } from "@shared/shipping";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  app.get("/api/shipping/calculate", (req, res) => {
+    const rawWeight = req.query.weightGrams;
+    const parsedWeight = typeof rawWeight === "string" ? Number(rawWeight) : Number.NaN;
+
+    if (!Number.isFinite(parsedWeight) || parsedWeight < 0) {
+      return res.status(400).json({ error: "Invalid weightGrams query parameter" });
+    }
+
+    const shipping = calculateDHLShipping(parsedWeight);
+    return res.json({
+      carrier: shipping.carrier,
+      priceEur: shipping.price,
+      tier: shipping.tier,
+      originCountry: ORIGIN_COUNTRY,
+      weightGrams: parsedWeight,
+    });
+  });
+
   // Product routes
   app.get("/api/products", async (req, res) => {
     try {
