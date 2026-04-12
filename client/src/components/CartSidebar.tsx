@@ -25,9 +25,7 @@ export default function CartSidebar({
     0
   );
   const estimatedWeightGrams = estimatePackageWeight(items);
-  const shipping = items.length > 0
-    ? calculateDHLShipping(estimatedWeightGrams)
-    : { price: 0, tier: "Gratis", carrier: "DHL Express" };
+  const shipping = calculateDHLShipping(estimatedWeightGrams);
   const total = subTotal + shipping.price;
 
   if (!isOpen) return null;

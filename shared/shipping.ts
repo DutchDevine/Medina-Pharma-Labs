@@ -11,13 +11,13 @@ export const ORIGIN_COUNTRY = "Poland";
 const DEFAULT_ITEM_WEIGHT_GRAMS = 100;
 
 export const DHL_RATES_FROM_POLAND: ShippingRate[] = [
-  { weightUpToGrams: 500, priceEur: 14.5, label: "Tot 500 g" },
-  { weightUpToGrams: 1000, priceEur: 17, label: "Tot 1 kg" },
-  { weightUpToGrams: 2000, priceEur: 21.5, label: "Tot 2 kg" },
-  { weightUpToGrams: 5000, priceEur: 32, label: "Tot 5 kg" },
-  { weightUpToGrams: 10000, priceEur: 48, label: "Tot 10 kg" },
-  { weightUpToGrams: 20000, priceEur: 74, label: "Tot 20 kg" },
-  { weightUpToGrams: 31500, priceEur: 110, label: "Tot 31.5 kg" },
+  { weightUpToGrams: 500, priceEur: 14.5, label: "tot 500 g" },
+  { weightUpToGrams: 1000, priceEur: 17, label: "tot 1 kg" },
+  { weightUpToGrams: 2000, priceEur: 21.5, label: "tot 2 kg" },
+  { weightUpToGrams: 5000, priceEur: 32, label: "tot 5 kg" },
+  { weightUpToGrams: 10000, priceEur: 48, label: "tot 10 kg" },
+  { weightUpToGrams: 20000, priceEur: 74, label: "tot 20 kg" },
+  { weightUpToGrams: 31500, priceEur: 110, label: "tot 31.5 kg" },
 ];
 
 function parseWeightFromQuantity(quantity?: string): number {
@@ -60,7 +60,7 @@ export function calculateDHLShipping(weightGrams: number): {
   if (weightGrams <= 0) {
     return {
       price: 0,
-      tier: "Geen verzending nodig",
+      tier: "Gratis",
       carrier: "DHL Express",
     };
   }
