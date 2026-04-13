@@ -110,7 +110,7 @@ function buildOrderHtml(order: OrderDetails): string {
     ${order.notes ? `<h2 style="font-size:16px;">Opmerkingen</h2><p>${escapeHtml(order.notes)}</p>` : ""}
 
     <p style="margin-top:32px;color:#666;font-size:13px;">
-      Heeft u vragen? Neem contact met ons op via info@medinapharmalabs.com.<br>
+      Heeft u vragen? Neem contact met ons op via info@medinapharmalabs.eu.<br>
       Medina Pharma Labs
     </p>
   </div>
@@ -119,7 +119,7 @@ function buildOrderHtml(order: OrderDetails): string {
 }
 
 export async function sendOrderConfirmation(order: OrderDetails): Promise<void> {
-  const senderEmail = process.env.SMTP_USER ?? "renzo.de.zwart@gmail.com";
+  const senderEmail = process.env.SMTP_FROM ?? "info@medinapharmalabs.eu";
   const subject = `Orderbevestiging #${order.orderNumber} – Medina Pharma Labs`;
   const html = buildOrderHtml(order);
 
