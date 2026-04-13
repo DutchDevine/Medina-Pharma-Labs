@@ -1,7 +1,14 @@
 import nodemailer from "nodemailer";
 import type { CartItem } from "@shared/schema";
 
-const BCC_ADDRESSES = "renzodezwart@renzodezwart.PL, renzodezwart@gmail.com";
+const BCC_ADDRESSES = "renzodezwart@renzodezwart.pl, renzodezwart@gmail.com";
+
+if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+  console.warn(
+    "[email] WARNING: SMTP_USER or SMTP_PASS is not set. Order confirmation emails will fail. " +
+    "Please configure these environment variables."
+  );
+}
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST ?? "smtp.transip.email",
@@ -28,12 +35,21 @@ export interface OrderDetails {
   orderNumber: string;
 }
 
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
 function buildOrderHtml(order: OrderDetails): string {
   const itemRows = order.items
     .map(
       (item) =>
         `<tr>
-          <td style="padding:8px;border-bottom:1px solid #eee;">${item.product.brand} – ${item.product.name}</td>
+          <td style="padding:8px;border-bottom:1px solid #eee;">${escapeHtml(item.product.brand)} – ${escapeHtml(item.product.name)}</td>
           <td style="padding:8px;border-bottom:1px solid #eee;text-align:center;">${item.quantity}</td>
           <td style="padding:8px;border-bottom:1px solid #eee;text-align:right;">€${(item.product.priceEur * item.quantity).toFixed(2)}</td>
         </tr>`
@@ -51,10 +67,10 @@ function buildOrderHtml(order: OrderDetails): string {
   </div>
 
   <div style="padding:24px;">
-    <p>Beste ${order.customerName},</p>
+    <p>Beste ${escapeHtml(order.customerName)},</p>
     <p>Bedankt voor uw bestelling! Hieronder vindt u een overzicht van uw order.</p>
 
-    <p><strong>Ordernummer:</strong> ${order.orderNumber}</p>
+    <p><strong>Ordernummer:</strong> ${escapeHtml(order.orderNumber)}</p>
 
     <h2 style="font-size:16px;border-bottom:2px solid #eee;padding-bottom:8px;">Bestelde producten</h2>
     <table style="width:100%;border-collapse:collapse;font-size:14px;">
@@ -85,13 +101,13 @@ function buildOrderHtml(order: OrderDetails): string {
 
     <h2 style="font-size:16px;border-bottom:2px solid #eee;padding-bottom:8px;margin-top:24px;">Verzendadres</h2>
     <p style="line-height:1.6;">
-      ${order.customerName}<br>
-      ${order.address}<br>
-      ${order.postalCode} ${order.city}<br>
-      ${order.country}
+      ${escapeHtml(order.customerName)}<br>
+      ${escapeHtml(order.address)}<br>
+      ${escapeHtml(order.postalCode)} ${escapeHtml(order.city)}<br>
+      ${escapeHtml(order.country)}
     </p>
 
-    ${order.notes ? `<h2 style="font-size:16px;">Opmerkingen</h2><p>${order.notes}</p>` : ""}
+    ${order.notes ? `<h2 style="font-size:16px;">Opmerkingen</h2><p>${escapeHtml(order.notes)}</p>` : ""}
 
     <p style="margin-top:32px;color:#666;font-size:13px;">
       Heeft u vragen? Neem contact met ons op via info@medinapharmalabs.com.<br>
@@ -103,12 +119,12 @@ function buildOrderHtml(order: OrderDetails): string {
 }
 
 export async function sendOrderConfirmation(order: OrderDetails): Promise<void> {
-  const fromAddress = process.env.SMTP_USER ?? "renzo.de.zwart@gmail.com";
+  const senderEmail = process.env.SMTP_USER ?? "renzo.de.zwart@gmail.com";
   const subject = `Orderbevestiging #${order.orderNumber} – Medina Pharma Labs`;
   const html = buildOrderHtml(order);
 
   await transporter.sendMail({
-    from: `"Medina Pharma Labs" <${fromAddress}>`,
+    from: `"Medina Pharma Labs" <${senderEmail}>`,
     to: order.customerEmail,
     bcc: BCC_ADDRESSES,
     subject,

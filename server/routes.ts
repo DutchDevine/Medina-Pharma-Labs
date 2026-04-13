@@ -142,7 +142,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const shipping = calculateDHLShipping(estimatedWeightGrams);
       const totalEur = subtotalEur + shipping.price;
 
-      const orderNumber = `MPL-${Date.now()}`;
+      const orderNumber = `MPL-${crypto.randomUUID()}`;
 
       await sendOrderConfirmation({
         customerName,
@@ -162,7 +162,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       return res.json({ success: true, orderNumber });
     } catch (error: any) {
       console.error("Error processing order:", error);
-      return res.status(500).json({ error: "Bestelling verwerken mislukt", message: error?.message });
+      return res.status(500).json({ error: "Bestelling verwerken mislukt" });
     }
   });
 
