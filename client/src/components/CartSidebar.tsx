@@ -11,6 +11,7 @@ interface CartSidebarProps {
   items: CartItem[];
   onUpdateQuantity: (productId: string, newQuantity: number) => void;
   onRemoveItem: (productId: string) => void;
+  onCheckout: () => void;
 }
 
 export default function CartSidebar({
@@ -19,6 +20,7 @@ export default function CartSidebar({
   items,
   onUpdateQuantity,
   onRemoveItem,
+  onCheckout,
 }: CartSidebarProps) {
   const subTotal = items.reduce(
     (sum, item) => sum + item.product.priceEur * item.quantity,
@@ -154,7 +156,7 @@ export default function CartSidebar({
                   €{total.toFixed(2)}
                 </span>
               </div>
-              <Button className="w-full" size="lg" data-testid="button-checkout">
+              <Button className="w-full" size="lg" data-testid="button-checkout" onClick={onCheckout}>
                 Afrekenen
               </Button>
             </div>
