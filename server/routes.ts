@@ -2,7 +2,8 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { generateProductImage, generateProductImages } from "./imageGenerator";
-import { calculateDHLShipping, ORIGIN_COUNTRY } from "@shared/shipping";
+import { calculateDHLShipping, ORIGIN_COUNTRY, estimatePackageWeight } from "@shared/shipping";
+import { sendOrderConfirmation } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/shipping/calculate", (req, res) => {
@@ -120,6 +121,48 @@ export async function registerRoutes(app: Express): Promise<Server> {
         error: "Failed to start image generation",
         message: error?.message || "Unknown error"
       });
+    }
+  });
+
+  // Order / checkout route
+  app.post("/api/orders", async (req, res) => {
+    try {
+      const { customerName, customerEmail, address, city, postalCode, country, notes, items } = req.body;
+
+      if (!customerName || !customerEmail || !address || !city || !postalCode || !country || !Array.isArray(items) || items.length === 0) {
+        return res.status(400).json({ error: "Verplichte velden ontbreken" });
+      }
+
+      const subtotalEur: number = items.reduce(
+        (sum: number, item: { product: { priceEur: number }; quantity: number }) =>
+          sum + item.product.priceEur * item.quantity,
+        0
+      );
+      const estimatedWeightGrams = estimatePackageWeight(items);
+      const shipping = calculateDHLShipping(estimatedWeightGrams);
+      const totalEur = subtotalEur + shipping.price;
+
+      const orderNumber = `MPL-${Date.now()}`;
+
+      await sendOrderConfirmation({
+        customerName,
+        customerEmail,
+        address,
+        city,
+        postalCode,
+        country,
+        notes,
+        items,
+        subtotalEur,
+        shippingEur: shipping.price,
+        totalEur,
+        orderNumber,
+      });
+
+      return res.json({ success: true, orderNumber });
+    } catch (error: any) {
+      console.error("Error processing order:", error);
+      return res.status(500).json({ error: "Bestelling verwerken mislukt", message: error?.message });
     }
   });
 

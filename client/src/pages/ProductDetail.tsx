@@ -326,6 +326,7 @@ export default function ProductDetail() {
         items={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
+        onCheckout={() => {}}
       />
     </div>
   );

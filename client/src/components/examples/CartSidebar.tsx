@@ -54,6 +54,7 @@ export default function CartSidebarExample() {
         items={items}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
+        onCheckout={() => {}}
       />
     </div>
   );

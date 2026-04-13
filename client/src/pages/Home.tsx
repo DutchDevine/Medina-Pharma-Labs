@@ -6,12 +6,14 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CategorySection from "@/components/CategorySection";
 import CartSidebar from "@/components/CartSidebar";
+import CheckoutModal from "@/components/CheckoutModal";
 import Footer from "@/components/Footer";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const { toast } = useToast();
@@ -149,6 +151,14 @@ export default function Home() {
         items={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
+        onCheckout={() => { setIsCartOpen(false); setIsCheckoutOpen(true); }}
+      />
+
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        items={cartItems}
+        onOrderSuccess={() => setCartItems([])}
       />
     </div>
   );
